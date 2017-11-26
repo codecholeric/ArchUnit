@@ -24,6 +24,7 @@ import com.tngtech.archunit.core.domain.JavaAnnotation;
 import com.tngtech.archunit.core.domain.JavaCall;
 import com.tngtech.archunit.core.domain.JavaClass;
 import com.tngtech.archunit.core.domain.JavaConstructorCall;
+import com.tngtech.archunit.core.domain.JavaField;
 import com.tngtech.archunit.core.domain.JavaFieldAccess;
 import com.tngtech.archunit.core.domain.JavaMethodCall;
 import com.tngtech.archunit.core.domain.JavaModifier;
@@ -34,6 +35,8 @@ import com.tngtech.archunit.lang.conditions.ArchConditions;
 import com.tngtech.archunit.lang.syntax.elements.ClassesShould;
 import com.tngtech.archunit.lang.syntax.elements.ClassesShouldConjunction;
 import com.tngtech.archunit.lang.syntax.elements.ClassesShouldThat;
+import com.tngtech.archunit.lang.syntax.elements.FieldsThat;
+import com.tngtech.archunit.lang.syntax.elements.GivenFieldsThat;
 import com.tngtech.archunit.lang.syntax.elements.OnlyBeAccessedSpecification;
 
 class ClassesShouldInternal extends ObjectsShouldInternal<JavaClass>
@@ -57,6 +60,11 @@ class ClassesShouldInternal extends ObjectsShouldInternal<JavaClass>
             ConditionAggregator<JavaClass> conditionAggregator,
             Function<ArchCondition<JavaClass>, ArchCondition<JavaClass>> prepareCondition) {
         super(classesTransformer, priority, conditionAggregator, prepareCondition);
+    }
+
+    @Override
+    public GivenFieldsThat haveFields() {
+        return new GivenFieldsThatInternal(new GivenFieldsInternal(Priority.MEDIUM, new ClassesToFieldsTransformer()), new PredicateAggregator<JavaField>());
     }
 
     @Override

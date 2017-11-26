@@ -37,6 +37,7 @@ import static com.tngtech.archunit.PublicAPI.Usage.ACCESS;
 
 public interface ClassesShould {
 
+    GivenFieldsThat haveFields();
     /**
      * Asserts that classes have a certain fully qualified class name.
      *
