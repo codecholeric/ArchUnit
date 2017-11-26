@@ -19,7 +19,6 @@ import java.lang.annotation.Annotation;
 
 import com.tngtech.archunit.base.DescribedPredicate;
 import com.tngtech.archunit.core.domain.JavaAnnotation;
-import com.tngtech.archunit.core.domain.JavaClass;
 import com.tngtech.archunit.core.domain.JavaModifier;
 
 public interface GivenFieldsThat extends FieldsThat<GivenFieldsConjunction> {

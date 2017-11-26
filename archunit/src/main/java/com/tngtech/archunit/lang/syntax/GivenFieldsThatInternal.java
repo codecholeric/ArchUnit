@@ -31,11 +31,11 @@ import com.tngtech.archunit.lang.syntax.elements.GivenFieldsConjunction;
 import com.tngtech.archunit.lang.syntax.elements.GivenFieldsThat;
 
 class GivenFieldsThatInternal implements GivenFieldsThat {
-    private final GivenFieldsInternal givenClasses;
+    private final GivenFieldsInternal givenFields;
     private final PredicateAggregator<JavaField> currentPredicate;
 
-    GivenFieldsThatInternal(GivenFieldsInternal givenClasses, PredicateAggregator<JavaField> predicate) {
-        this.givenClasses = givenClasses;
+    GivenFieldsThatInternal(GivenFieldsInternal givenFields, PredicateAggregator<JavaField> predicate) {
+        this.givenFields = givenFields;
         this.currentPredicate = predicate;
     }
 
@@ -131,6 +131,6 @@ class GivenFieldsThatInternal implements GivenFieldsThat {
     }
 
     private GivenFieldsInternal givenWith(DescribedPredicate<? super JavaField> predicate) {
-        return givenClasses.with(currentPredicate.add(predicate));
+        return givenFields.with(currentPredicate.add(predicate));
     }
 }

@@ -18,7 +18,6 @@ package com.tngtech.archunit.lang.syntax.elements;
 import static com.tngtech.archunit.PublicAPI.Usage.ACCESS;
 
 import com.tngtech.archunit.PublicAPI;
-import com.tngtech.archunit.core.domain.JavaClass;
 import com.tngtech.archunit.core.domain.JavaField;
 import com.tngtech.archunit.lang.ArchCondition;
 import com.tngtech.archunit.lang.ArchRule;
